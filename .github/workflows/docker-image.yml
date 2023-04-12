@@ -8,11 +8,17 @@ on:
 
 jobs:
 
-  build:
-
+  job1_build_image_1:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag job1:$(date +%s)
+  
+    job2_build_image_2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag job2:$(date +%s)
+      
